@@ -3,218 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Coming Soon | ABIS Travels</title>
+<title>ABIS Travels - Coming Soon</title>
 
 <style>
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #061321;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: #06172b;
 }
 
-.hero {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(3, 13, 27, 0.15),
-            rgba(3, 13, 27, 0.55),
-            rgba(3, 13, 27, 0.95)
-        ),
-        radial-gradient(circle at 50% 35%, #286c91, #102a43 45%, #030914 100%);
+.poster {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(#092b4d, #17638a 55%, #06172b);
 }
 
-/* Stars */
-.stars {
-    position: absolute;
-    inset: 0;
-    background-image:
-        radial-gradient(white 1px, transparent 1px),
-        radial-gradient(#8fdcff 1px, transparent 1px);
-    background-size: 70px 70px, 110px 110px;
-    background-position: 0 0, 30px 20px;
-    opacity: 0.35;
+svg.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
 }
 
-/* Moon */
-.moon {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: #d8f1ff;
-    box-shadow: 0 0 50px #8bd9ff;
-    top: 15%;
-    right: 15%;
-    opacity: 0.8;
-}
-
-/* Mountains */
-.mountain {
-    position: absolute;
-    bottom: 0;
-    width: 0;
-    height: 0;
-    border-left: 50vw solid transparent;
-    border-right: 50vw solid transparent;
-    border-bottom: 65vh solid #081522;
-}
-
-.mountain.back {
-    border-bottom-color: #18334b;
-    bottom: 10%;
-    transform: scale(1.2);
-    opacity: 0.6;
-}
-
-/* Main content */
 .content {
-    z-index: 5;
-    position: relative;
-    padding: 20px;
-    width: 100%;
-    max-width: 700px;
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  color: white;
 }
 
 .logo {
-    color: white;
-    font-size: 18px;
-    letter-spacing: 8px;
-    font-weight: bold;
-    margin-bottom: 35px;
-}
-
-.line {
-    width: 60px;
-    height: 3px;
-    background: #52d5ff;
-    margin: 20px auto;
-    box-shadow: 0 0 15px #52d5ff;
+  font-size: 22px;
+  letter-spacing: 8px;
+  font-weight: bold;
+  margin-bottom: 35px;
 }
 
 h1 {
-    color: white;
-    font-size: clamp(45px, 9vw, 90px);
-    letter-spacing: 8px;
-    font-weight: 900;
-    text-shadow: 0 5px 30px rgba(0,0,0,0.6);
+  font-size: clamp(48px, 10vw, 100px);
+  font-weight: 900;
+  letter-spacing: 5px;
+  line-height: 1.1;
+  text-shadow: 0 5px 25px #00101f;
 }
 
-.subtitle {
-    color: #bcecff;
-    font-size: 16px;
-    letter-spacing: 5px;
-    margin-top: 20px;
+.line {
+  width: 100px;
+  height: 3px;
+  background: #e8c778;
+  margin: 25px auto;
+}
+
+.tagline {
+  font-size: 14px;
+  letter-spacing: 5px;
+  color: #f4dc9c;
 }
 
 .footer {
-    position: absolute;
-    bottom: 35px;
-    width: 100%;
-    color: #91b5c9;
-    font-size: 12px;
-    letter-spacing: 3px;
-    z-index: 5;
+  position: absolute;
+  bottom: 30px;
+  z-index: 3;
+  color: white;
+  font-size: 11px;
+  letter-spacing: 3px;
 }
 
-/* Airplane animation */
 .plane {
-    position: absolute;
-    font-size: 40px;
-    top: 30%;
-    left: -100px;
-    animation: fly 12s linear infinite;
-    transform: rotate(-10deg);
+  position: absolute;
+  top: 27%;
+  left: -100px;
+  font-size: 45px;
+  z-index: 2;
+  animation: fly 12s linear infinite;
 }
 
 @keyframes fly {
-    0% {
-        left: -100px;
-    }
-    100% {
-        left: 110%;
-    }
+  to { left: 110%; }
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-    .moon {
-        width: 90px;
-        height: 90px;
-        top: 12%;
-        right: 12%;
-    }
-
-    h1 {
-        letter-spacing: 4px;
-    }
-
-    .logo {
-        letter-spacing: 5px;
-        font-size: 15px;
-    }
-
-    .subtitle {
-        font-size: 12px;
-        letter-spacing: 3px;
-    }
-
-    .footer {
-        font-size: 10px;
-        letter-spacing: 2px;
-    }
+@media(max-width:600px) {
+  .logo { font-size: 17px; letter-spacing: 5px; }
+  .tagline { font-size: 11px; letter-spacing: 3px; }
+  .footer { font-size: 9px; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="hero">
+<div class="poster">
 
-    <div class="stars"></div>
-    <div class="moon"></div>
+<svg class="background" viewBox="0 0 1200 800"
+preserveAspectRatio="xMidYMid slice">
 
-    <div class="mountain back"></div>
-    <div class="mountain"></div>
+<defs>
+  <linearGradient id="sky" x2="0" y2="1">
+    <stop stop-color="#06172b"/>
+    <stop offset="0.65" stop-color="#287b9d"/>
+    <stop offset="1" stop-color="#f2b978"/>
+  </linearGradient>
+  <linearGradient id="mountain" x2="0" y2="1">
+    <stop stop-color="#274d65"/>
+    <stop offset="1" stop-color="#061323"/>
+  </linearGradient>
+</defs>
 
-    <div class="plane">✈</div>
+<rect width="1200" height="800" fill="url(#sky)"/>
 
-    <div class="content">
+<!-- Stars -->
+<g fill="white" opacity=".8">
+  <circle cx="120" cy="100" r="2"/>
+  <circle cx="270" cy="180" r="2"/>
+  <circle cx="440" cy="90" r="2"/>
+  <circle cx="690" cy="140" r="2"/>
+  <circle cx="900" cy="80" r="2"/>
+  <circle cx="1080" cy="190" r="2"/>
+  <circle cx="780" cy="250" r="2"/>
+  <circle cx="350" cy="280" r="2"/>
+</g>
 
-        <div class="logo">ABIS TRAVELS</div>
+<!-- Moon -->
+<circle cx="930" cy="180" r="75"
+fill="#fff0c9" opacity=".95"/>
+<circle cx="930" cy="180" r="95"
+fill="#fff0c9" opacity=".12"/>
 
-        <div class="line"></div>
+<!-- Clouds -->
+<g fill="#d5e8ed" opacity=".35">
+  <ellipse cx="200" cy="350" rx="120" ry="22"/>
+  <ellipse cx="270" cy="345" rx="75" ry="30"/>
+  <ellipse cx="900" cy="370" rx="130" ry="25"/>
+</g>
 
-        <h1>COMING<br>SOON</h1>
+<!-- Mountains -->
+<path d="M0 600 L250 300 L430 540
+L670 260 L950 590 L1100 380
+L1200 510 L1200 800 L0 800Z"
+fill="#24475e"/>
 
-        <p class="subtitle">
-            YOUR JOURNEY STARTS HERE
-        </p>
+<path d="M0 670 L250 430 L450 650
+L720 390 L1000 680 L1200 470
+L1200 800 L0 800Z"
+fill="url(#mountain)"/>
 
-        <div class="line"></div>
+<!-- Snow peaks -->
+<path d="M250 300 L205 355 L250 340
+L285 355Z" fill="#e5f4f5"/>
+<path d="M670 260 L615 330 L670 310
+L715 340Z" fill="#e5f4f5"/>
 
-    </div>
+<!-- Foreground -->
+<path d="M0 700 Q300 610 600 710
+T1200 680 L1200 800 L0 800Z"
+fill="#061323"/>
 
-    <div class="footer">
-        SOMETHING AMAZING IS ON THE WAY
-    </div>
+</svg>
+
+<div class="plane">✈</div>
+
+<div class="content">
+  <div class="logo">ABIS TRAVELS</div>
+
+  <div class="line"></div>
+
+  <h1>COMING<br>SOON</h1>
+
+  <div class="line"></div>
+
+  <p class="tagline">
+    YOUR JOURNEY STARTS HERE
+  </p>
+</div>
+
+<div class="footer">
+  EXPLORE THE WORLD WITH ABIS TRAVELS
+</div>
 
 </div>
 
