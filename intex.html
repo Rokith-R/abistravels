@@ -15,13 +15,15 @@
 body {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background: #06172b;
 }
 
 .poster {
   height: 100vh;
+  height: 100dvh;
   width: 100%;
   position: relative;
   display: flex;
@@ -85,9 +87,8 @@ h1 {
 
 .plane {
   position: absolute;
-  top: 27%;
-  left: -100px;
-  font-size: 45px;
+  top: 25%;
+  left: -80px;
   z-index: 2;
   animation: fly 12s linear infinite;
 }
@@ -96,10 +97,10 @@ h1 {
   to { left: 110%; }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .logo { font-size: 17px; letter-spacing: 5px; }
   .tagline { font-size: 11px; letter-spacing: 3px; }
-  .footer { font-size: 9px; }
+  .footer { font-size: 9px; bottom: 20px; }
 }
 </style>
 </head>
@@ -108,91 +109,74 @@ h1 {
 
 <div class="poster">
 
-<svg class="background" viewBox="0 0 1200 800"
-preserveAspectRatio="xMidYMid slice">
+  <svg class="background" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="sky" x2="0" y2="1">
+        <stop stop-color="#06172b"/>
+        <stop offset="0.65" stop-color="#287b9d"/>
+        <stop offset="1" stop-color="#f2b978"/>
+      </linearGradient>
+      <linearGradient id="mountain" x2="0" y2="1">
+        <stop stop-color="#274d65"/>
+        <stop offset="1" stop-color="#061323"/>
+      </linearGradient>
+    </defs>
 
-<defs>
-  <linearGradient id="sky" x2="0" y2="1">
-    <stop stop-color="#06172b"/>
-    <stop offset="0.65" stop-color="#287b9d"/>
-    <stop offset="1" stop-color="#f2b978"/>
-  </linearGradient>
-  <linearGradient id="mountain" x2="0" y2="1">
-    <stop stop-color="#274d65"/>
-    <stop offset="1" stop-color="#061323"/>
-  </linearGradient>
-</defs>
+    <rect width="1200" height="800" fill="url(#sky)"/>
 
-<rect width="1200" height="800" fill="url(#sky)"/>
+    <!-- Stars -->
+    <g fill="white" opacity=".8">
+      <circle cx="120" cy="100" r="2"/>
+      <circle cx="270" cy="180" r="2"/>
+      <circle cx="440" cy="90" r="2"/>
+      <circle cx="690" cy="140" r="2"/>
+      <circle cx="900" cy="80" r="2"/>
+      <circle cx="1080" cy="190" r="2"/>
+      <circle cx="780" cy="250" r="2"/>
+      <circle cx="350" cy="280" r="2"/>
+    </g>
 
-<!-- Stars -->
-<g fill="white" opacity=".8">
-  <circle cx="120" cy="100" r="2"/>
-  <circle cx="270" cy="180" r="2"/>
-  <circle cx="440" cy="90" r="2"/>
-  <circle cx="690" cy="140" r="2"/>
-  <circle cx="900" cy="80" r="2"/>
-  <circle cx="1080" cy="190" r="2"/>
-  <circle cx="780" cy="250" r="2"/>
-  <circle cx="350" cy="280" r="2"/>
-</g>
+    <!-- Moon -->
+    <circle cx="930" cy="180" r="75" fill="#fff0c9" opacity=".95"/>
+    <circle cx="930" cy="180" r="95" fill="#fff0c9" opacity=".12"/>
 
-<!-- Moon -->
-<circle cx="930" cy="180" r="75"
-fill="#fff0c9" opacity=".95"/>
-<circle cx="930" cy="180" r="95"
-fill="#fff0c9" opacity=".12"/>
+    <!-- Clouds -->
+    <g fill="#d5e8ed" opacity=".35">
+      <ellipse cx="200" cy="350" rx="120" ry="22"/>
+      <ellipse cx="270" cy="345" rx="75" ry="30"/>
+      <ellipse cx="900" cy="370" rx="130" ry="25"/>
+    </g>
 
-<!-- Clouds -->
-<g fill="#d5e8ed" opacity=".35">
-  <ellipse cx="200" cy="350" rx="120" ry="22"/>
-  <ellipse cx="270" cy="345" rx="75" ry="30"/>
-  <ellipse cx="900" cy="370" rx="130" ry="25"/>
-</g>
+    <!-- Mountains -->
+    <path d="M0 600 L250 300 L430 540 L670 260 L950 590 L1100 380 L1200 510 L1200 800 L0 800Z" fill="#24475e"/>
+    <path d="M0 670 L250 430 L450 650 L720 390 L1000 680 L1200 470 L1200 800 L0 800Z" fill="url(#mountain)"/>
 
-<!-- Mountains -->
-<path d="M0 600 L250 300 L430 540
-L670 260 L950 590 L1100 380
-L1200 510 L1200 800 L0 800Z"
-fill="#24475e"/>
+    <!-- Snow peaks -->
+    <path d="M250 300 L205 355 L250 340 L285 355Z" fill="#e5f4f5"/>
+    <path d="M670 260 L615 330 L670 310 L715 340Z" fill="#e5f4f5"/>
 
-<path d="M0 670 L250 430 L450 650
-L720 390 L1000 680 L1200 470
-L1200 800 L0 800Z"
-fill="url(#mountain)"/>
+    <!-- Foreground -->
+    <path d="M0 700 Q300 610 600 710 T1200 680 L1200 800 L0 800Z" fill="#061323"/>
+  </svg>
 
-<!-- Snow peaks -->
-<path d="M250 300 L205 355 L250 340
-L285 355Z" fill="#e5f4f5"/>
-<path d="M670 260 L615 330 L670 310
-L715 340Z" fill="#e5f4f5"/>
+  <!-- Crisp SVG Airplane -->
+  <div class="plane">
+    <svg width="45" height="45" viewBox="0 0 24 24" fill="#fff0c9">
+      <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" transform="rotate(90 12 12)"/>
+    </svg>
+  </div>
 
-<!-- Foreground -->
-<path d="M0 700 Q300 610 600 710
-T1200 680 L1200 800 L0 800Z"
-fill="#061323"/>
+  <div class="content">
+    <div class="logo">ABIS TRAVELS</div>
+    <div class="line"></div>
+    <h1>COMING<br>SOON</h1>
+    <div class="line"></div>
+    <p class="tagline">YOUR JOURNEY STARTS HERE</p>
+  </div>
 
-</svg>
-
-<div class="plane">✈</div>
-
-<div class="content">
-  <div class="logo">ABIS TRAVELS</div>
-
-  <div class="line"></div>
-
-  <h1>COMING<br>SOON</h1>
-
-  <div class="line"></div>
-
-  <p class="tagline">
-    YOUR JOURNEY STARTS HERE
-  </p>
-</div>
-
-<div class="footer">
-  EXPLORE THE WORLD WITH ABIS TRAVELS
-</div>
+  <div class="footer">
+    EXPLORE THE WORLD WITH ABIS TRAVELS
+  </div>
 
 </div>
 
